@@ -1,5 +1,5 @@
 # Project-manager
-![Screenshot (69)](https://github.com/DigvijayMane21/Taskmanagement/blob/main/Screenshot%20(69).png)
+![Screenshot (69)]("D:\study\Taskmanagement\Screenshot (69).png")
 ![Screenshot (70)](https://github.com/DigvijayMane21/Taskmanagement/blob/main/Screenshot%20(70).png)
 
 Project Manager is a web application that allows users to manage tasks, chat with team members, and track project progress.
