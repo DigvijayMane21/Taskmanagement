@@ -56,7 +56,7 @@ h2 {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: peru;
+    color: #0ee5e8 0%;
 }
 
 .task-due-date,
@@ -149,7 +149,7 @@ h2 {
 
 .left-section,
 .right-section {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     flex: 1;
     padding: 20px;
     border-radius: 20px;
@@ -160,12 +160,13 @@ h2 {
     flex: 3;
 }
 
-.chat-messages {
+.chat-message {
+    border: 2px solid rgb(16, 54, 204);
+    background-color: #25ebee;
     height: 900px;
     border-radius: 20px;
     overflow-y: auto;
-    background-color: wheat;
     margin-bottom: 15px;
     padding: 15px;
-    color: black;
+    color: rgb(1, 4, 16);
 }
