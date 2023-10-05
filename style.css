@@ -8,7 +8,7 @@ body {
 section {
 
     background-color: #85FFBD;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-image: linear-gradient(to top, #1b9004 0%, #50f756 100%);
     color: white;
     font-size: large;
     padding: 20px;
@@ -24,22 +24,23 @@ section {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 1px solid gray;
+    border: 2px solid rgb(92, 236, 107);
     margin: 20px;
     border-radius: 20px;
 }
 
 .task-list li:hover {
-    border: 5px solid darkgray;
+    border: 5px solid rgb(92, 236, 107);
 }
 
 h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 70px;
     font-weight: 600;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    background-image: linear-gradient(90deg, #8afa8e 0%, #8afa8e 100%);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -73,9 +74,9 @@ h2 {
     width: 95%;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid rgb(92, 236, 107);
     border-radius: 5px;
-    background-color: #f8f8f8;
+    background-color: #ebf4b6;
     color: #333;
     transition: border-color 0.3s;
 }
@@ -88,10 +89,10 @@ h2 {
 .button-28 {
     appearance: none;
     background-color: transparent;
-    border: 2px solid #1A1A1A;
+    border: 2px solid #fff;
     border-radius: 15px;
     box-sizing: border-box;
-    color: #3B3B3B;
+    color: #fff;
     cursor: pointer;
     display: inline-block;
     font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -136,7 +137,7 @@ h2 {
 
 .comment {
     font-size: 12px;
-    color: gray;
+    color: #ebf4b6;
 }
 
 .completed-task-list {
@@ -161,8 +162,8 @@ h2 {
 }
 
 .chat-message {
-    border: 2px solid rgb(16, 54, 204);
-    background-color: #25ebee;
+    border: 2px solid rgb(92, 236, 107);
+    background-color: #ebf4b6;
     height: 900px;
     border-radius: 20px;
     overflow-y: auto;
