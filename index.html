@@ -5,7 +5,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Management Tool</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background-color: black;
+            color: gray;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+
+        section {
+
+            background-color: #85FFBD;
+            background-image: linear-gradient(to top, #1b9004 0%, #50f756 100%);
+            color: white;
+            font-size: large;
+            padding: 20px;
+        }
+
+        .task-list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .task-list li {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 2px solid rgb(92, 236, 107);
+            margin: 20px;
+            border-radius: 20px;
+        }
+
+        .task-list li:hover {
+            border: 5px solid rgb(92, 236, 107);
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 70px;
+            font-weight: 600;
+            background-image: linear-gradient(90deg, #8afa8e 0%, #8afa8e 100%);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .task-info h4 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #0ee5e8 0%;
+        }
+
+        .task-due-date,
+        .task-assigne {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 5px;
+        }
+
+
+        .create-task input[type="text"],
+        .create-task select,
+        .create-task textarea {
+            width: 95%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid rgb(92, 236, 107);
+            border-radius: 5px;
+            background-color: #ebf4b6;
+            color: #333;
+            transition: border-color 0.3s;
+        }
+
+        .create-task textarea {
+            height: 100px;
+        }
+
+
+        .button-28 {
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #fff;
+            border-radius: 15px;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 16px;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0;
+            min-height: 60px;
+            min-width: 0;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 40%;
+            will-change: transform;
+        }
+
+        .button-28:disabled {
+            pointer-events: none;
+        }
+
+        .button-28:hover {
+            color: #fff;
+            background-color: #1A1A1A;
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            transform: translateY(-2px);
+        }
+
+        .button-28:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
+
+
+        .comment-list {
+            margin-top: 10px;
+        }
+
+        .comment {
+            font-size: 12px;
+            color: #ebf4b6;
+        }
+
+        .completed-task-list {
+            margin-top: 30px;
+        }
+
+        .task-management {
+            display: flex;
+        }
+
+        .left-section,
+        .right-section {
+            background-color: #090909;
+            flex: 1;
+            padding: 20px;
+            border-radius: 20px;
+            margin-left: 5px;
+        }
+
+        .left-section {
+            flex: 3;
+        }
+
+        .chat-message {
+            border: 2px solid rgb(83, 243, 91);
+            background-color: black;
+            height: 900px;
+            border-radius: 20px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 15px;
+            color: rgb(1, 4, 16);
+        }
+
+        .right-section {
+            margin: 2;
+            padding-bottom: 3rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #form {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 0.25rem;
+            display: flex;
+            height: 3rem;
+            box-sizing: border-box;
+        }
+
+        #input {
+            border: none;
+            padding: 0 1rem;
+            width: auto;
+            border-radius: 2rem;
+            margin: 0.25rem;
+        }
+
+        #input:focus {
+            outline: none;
+        }
+
+        #form>button {
+            background: #333;
+            border: none;
+            padding: 0 1rem;
+            margin: 0.25rem;
+            border-radius: 3px;
+            outline: none;
+            color: #fff;
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages>li {
+            padding: 0.5rem 1rem;
+        }
+
+        #messages>li:nth-child(odd) {
+            background: #efefef;
+            color: #090909;
+        }
+
+        .MSGs {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,27 +282,182 @@
             </div>
         </div>
         <div class="right-section">
-            <h2>Chat</h2>
-            <div class="chat-messages">
+            <div class="MSGs">
+                <ul id="messages"></ul>
             </div>
-            <div class="chat-input">
-                <select id="writerName">
-                    <option value="">Select Your Name</option>
-                    <option value="Digvijay">Digvijay</option>
-                    <option value="Prathamesh">Prathamesh</option>
-                    <option value="omkar">omkar</option>
-                    <option value="Ishwari">Ishwari</option>
-                    <option value="Rutika">Rutika</option>
-                </select>
-                <input type="text" id="chatMessage" placeholder="Type your message..."
-                    style="padding: 8px; font-size: 16px; border: 2px solid rgb(92, 236, 107); border-radius: 5px; background-color: #ebf4b6; color: #333; transition: border-color 0.3s;"><br>
-                <button id="sendButton" class="button-28">Send</button>
-                <button id="clearChatButton" class="button-28">Clear Chat</button>
-            </div>
-        </div>
+            <form id="form" action="">
+                <input id="input" autocomplete="off" /><button>Send</button>
+            </form>
+            <script src="/socket.io/socket.io.js"></script>
+            <script>
+                let counter = 0;
+
+                const socket = io({
+                    auth: {
+                        serverOffset: 0
+                    },
+                    ackTimeout: 10000,
+                    retries: 3,
+                });
+
+                const form = document.getElementById('form');
+                const input = document.getElementById('input');
+                const messages = document.getElementById('messages');
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (input.value) {
+                        const clientOffset = `${socket.id}-${counter++}`;
+                        socket.emit('chat message', input.value, clientOffset);
+                        input.value = '';
+                    }
+                });
+
+                socket.on('chat message', (msg, serverOffset) => {
+                    const item = document.createElement('li');
+                    item.textContent = msg;
+                    console.log(socket);
+                    messages.appendChild(item);
+                    window.scrollTo(0, document.body.scrollHeight);
+                    socket.auth.serverOffset = serverOffset;
+                });
+            </script>
         </div>
     </section>
-    <script src="main.js"></script>
+    <script> document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("createTaskForm");
+            const assignedTasksList = document.getElementById("assignedTasksList");
+            const completedTasksList = document.getElementById("completedTasksList");
+            const myTasksList = document.getElementById("myTasksList");
+            const allowedNames = ["Digvijay", "Prathamesh", "omkar", "Ishwari", "Rutika"];
+            const writerNameInput = document.getElementById("writerName");
+            const chatMessageInput = document.getElementById("chatMessage");
+            const sendButton = document.getElementById("sendButton");
+            const chatMessages = document.querySelector(".chat-messages");
+
+            const storedMessages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+            const clearChatButton = document.getElementById("clearChatButton");
+
+            clearChatButton.addEventListener("click", function () {
+                chatMessages.innerHTML = "";
+                localStorage.removeItem("chatMessages");
+            });
+
+            storedMessages.forEach((message) => {
+                const chatMessageElement = document.createElement("div");
+                chatMessageElement.className = "chat-message";
+                chatMessageElement.textContent = message;
+                chatMessages.appendChild(chatMessageElement);
+            });
+
+            sendButton.addEventListener("click", function () {
+                const writerName = writerNameInput.value;
+                const chatMessage = chatMessageInput.value;
+
+                if (writerName && chatMessage) {
+                    const chatMessageElement = document.createElement("div");
+                    chatMessageElement.className = "chat-message";
+                    chatMessageElement.textContent = `${writerName}: ${chatMessage}`;
+                    chatMessages.appendChild(chatMessageElement);
+
+                    const storedMessages =
+                        JSON.parse(localStorage.getItem("chatMessages")) || [];
+                    storedMessages.push(`${writerName}: ${chatMessage}`);
+                    localStorage.setItem("chatMessages", JSON.stringify(storedMessages));
+
+                    chatMessageInput.value = "";
+                } else {
+                    alert("Please select your name and type a message.");
+                }
+            });
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const taskName = form.querySelector("#taskName").value;
+                const assignedBy = form.querySelector("#assignedTo").value;
+                const dueDate = form.querySelector("#dueDate").value;
+
+                const newTask = document.createElement("li");
+                newTask.className = "task";
+                newTask.innerHTML = `
+              <div class="task-info">
+          <h4>${taskName}</h4>
+          <p class="task-due-date">Due on: ${dueDate}</p>
+          <p class="task-assigne">Assigned by: ${assignedBy}</p>
+      </div>
+      <div class="task-actions">
+          <button class="button-28 btn-start">Start Task</button>
+          <button class="button-28 btn-complete">Task Completed</button>
+      </div>
+      <div class="comment-section">
+      <br>
+      <textarea class="comment-input" placeholder="Add a comment" style="border-radius: 10px; font-size: 16px;" rows="4" cols="50"></textarea>
+      
+          <button class="comment-submit button-28">Add Comment</button>
+          <select class="commenter-names" style="border-radius: 10px; margin-top: 10px; padding: 8px; font-size: 16px; width: 100%;">
+          <option value="Digvijay">Digvijay</option>
+          <option value="Prathamesh">Prathamesh</option>
+          <option value="omkar">omkar</option>
+          <option value="Ishwari">Ishwari</option>
+          <option value="Rutika">Rutika</option>
+      </select>
+      </div><br>
+      <div class="github-link">
+          <label for="githubLink">GitHub Link:</label><br>
+          <input type="text" name="githubLink" class="github-link-input" style="border-radius: 10px;margin-top: 10px; padding: 8px; font-size: 16px; width: 80%;"><br>
+      </div>
+      <div class="comment-list">
+      </div>
+              `;
+
+                assignedTasksList.appendChild(newTask);
+
+                form.reset();
+
+                const commentSubmit = newTask.querySelector(".comment-submit");
+                const commentInput = newTask.querySelector(".comment-input");
+                const commenterNames = newTask.querySelector(".commenter-names");
+                const commentList = newTask.querySelector(".comment-list");
+                const githubLinkInput = newTask.querySelector(".github-link-input");
+
+                commentSubmit.addEventListener("click", function () {
+                    const comment = commentInput.value;
+                    const selectedName = commenterNames.value;
+
+                    if (comment && selectedName) {
+                        const commentElement = document.createElement("p");
+                        commentElement.className = "comment";
+                        commentElement.textContent = `${selectedName}: ${comment}`;
+                        commentList.appendChild(commentElement);
+
+                        commentInput.value = "";
+                    } else {
+                        alert("Please provide both a comment and select a commenter.");
+                    }
+                });
+
+                const startTaskButton = newTask.querySelector(".btn-start");
+                const completeTaskButton = newTask.querySelector(".btn-complete");
+                startTaskButton.addEventListener("click", function () {
+                    const assignedTo = prompt(
+                        "Enter your name (" +
+                        allowedNames.filter((name) => name !== assignedBy).join(", ") +
+                        "):"
+                    );
+                    if (assignedTo && allowedNames.includes(assignedTo)) {
+                        newTask.querySelector(
+                            ".task-assigne"
+                        ).textContent = `Assigned by: ${assignedBy} | Assigned to: ${assignedTo}`;
+                        newTask.querySelector(".btn-start").remove();
+                        myTasksList.appendChild(newTask);
+                    } else {
+                        alert("Invalid name. Please provide a valid name.");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
